@@ -9,9 +9,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-html {
-  /* overflow: hidden; */
-}
 html,
 body {
   min-height: 100%;

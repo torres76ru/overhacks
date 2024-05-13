@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./HackatonCard.module.scss";
 import hackaton_image from "../../assets/hackaton.jpg";
 
