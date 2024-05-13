@@ -1,0 +1,67 @@
+.card {
+  color: #fff;
+  font-family: "Neue", sans-serif;
+
+  margin-bottom: 33px;
+  &__body,
+  &__actions {
+    background-color: #1f2021;
+    border-radius: 16px;
+  }
+  &__body {
+    display: flex;
+    padding: 15px 15px 20px 11px;
+    gap: 12px;
+  }
+  &__image {
+    border-radius: 13px;
+    overflow: hidden;
+    min-width: 88px;
+    width: 88px;
+    min-height: 88px;
+    height: 88px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__title {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 650;
+  }
+  &__subtitle {
+    font-size: 10px;
+    line-height: 15px;
+    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+  }
+  &__prize_pool {
+    font-size: 20px;
+    font-weight: 650;
+    line-height: 24px;
+  }
+  &__actions {
+    padding: 6px 12px 10px;
+  }
+  &__button {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    background-color: #03fdb3;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    border-radius: 18px;
+    transition: all 0.3s ease;
+    &:focus {
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+  }
+}
