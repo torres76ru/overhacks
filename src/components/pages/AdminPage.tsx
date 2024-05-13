@@ -13,7 +13,7 @@ const hackathon = {
 
 const AdminPage = () => {
   return (
-    <div>
+    <div className={classes.wrapper}>
       <div style={{ margin: "10px 0 0 15px" }}>
         <img src={arrow_icon} alt="go back" />
       </div>

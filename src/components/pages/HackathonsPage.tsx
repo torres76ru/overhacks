@@ -3,10 +3,11 @@ import Search from "../search/Search";
 import Filter from "../filter/Filter";
 import HackatonList from "../hackatonList/HackatonList";
 import Navbar from "../navbar/Navbar";
+import classes from "./Hackathons.module.scss";
 
 const HackathonsPage = () => {
   return (
-    <div>
+    <div className={classes.wrapper}>
       <div style={{ margin: "18px 0 20px" }}>
         <Container>
           <Search />
