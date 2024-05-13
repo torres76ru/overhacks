@@ -1,30 +1,29 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import Container from "./components/UI/container/Container";
-import Filter from "./components/filter/Filter";
-import HackatonList from "./components/hackatonList/HackatonList";
-import Navbar from "./components/navbar/Navbar";
-import Search from "./components/search/Search";
+import HackathonsPage from "./components/pages/HackathonsPage";
+import AdminPage from "./components/pages/AdminPage";
+import StatisticPage from "./components/pages/StatisticPage";
 
 function App() {
-  return (
-    <>
-      <div style={{ margin: "18px 0 20px" }}>
-        <Container>
-          <Search />
-        </Container>
-      </div>
-      <div style={{ margin: "5px 15px 20px" }}>
-        <Filter />
-      </div>
-      <div style={{ margin: "30px 0 0" }}>
-        <Container>
-          <HackatonList />
-        </Container>
-      </div>
-
-      <Navbar />
-    </>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HackathonsPage />
+    },
+    {
+      path: "/hackathons",
+      element: <HackathonsPage />
+    },
+    {
+      path: "/admin-panel",
+      element: <AdminPage />
+    },
+    {
+      path: "/statistic",
+      element: <StatisticPage />
+    }
+  ]);
+  return <RouterProvider router={router} />;
 }
 
 export default App;

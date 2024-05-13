@@ -1,0 +1,37 @@
+.btn {
+  display: inline-block;
+  color: #000;
+  background-color: #03fdb3;
+  width: 100%;
+  padding: 13px 20px 12px;
+  line-height: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: all 0.3s ease;
+  font-family: "Raleway", sans-serif;
+
+  &.primary {
+    color: #000;
+    background-color: #03fdb3;
+    &:hover {
+      color: #fff;
+      background-color: transparent;
+      border: 1px solid #8e8f8f;
+      transition: all 0.3s ease;
+    }
+  }
+  &.secondary {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #8e8f8f;
+    &:hover {
+      color: #000;
+      background-color: #03fdb3;
+      border: 1px solid #03fdb3;
+      transition: all 0.3s ease;
+    }
+  }
+}
