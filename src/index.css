@@ -12,6 +12,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  overflow: hidden;
 }
 
 body {
@@ -20,10 +21,15 @@ body {
 body::after {
   content: "";
   position: absolute;
+  z-index: -1;
   top: 0;
   width: 0;
   min-height: 100%;
   min-width: 100%;
   background-image: url("./assets/bg-1.png");
   opacity: 75%;
+}
+
+.container {
+  margin: 40px;
 }
