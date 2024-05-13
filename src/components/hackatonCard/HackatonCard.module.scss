@@ -59,6 +59,7 @@
     text-align: center;
     border-radius: 18px;
     transition: all 0.3s ease;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     &:focus {
       background-color: #fff;
       transition: all 0.3s ease;
