@@ -1,7 +1,7 @@
-import arrow_icon from "../../assets/icons/arrow.svg";
-import Button from "../UI/button/Button";
-import Container from "../UI/container/Container";
-import HackatonCard from "../hackatonCard/HackatonCard";
+import ArrowBack from "../../UI/arrow-back/ArrowBack";
+import Button from "../../UI/button/Button";
+import Container from "../../UI/container/Container";
+import HackatonCard from "../../hackatonCard/HackatonCard";
 import classes from "./AdminPage.module.scss";
 const hackathon = {
   id: "1",
@@ -14,9 +14,7 @@ const hackathon = {
 const AdminPage = () => {
   return (
     <div className={classes.wrapper}>
-      <div style={{ margin: "10px 0 0 15px" }}>
-        <img src={arrow_icon} alt="go back" />
-      </div>
+      <ArrowBack />
 
       <Container>
         <div style={{ margin: "30px 0 42px" }}>

@@ -1,0 +1,96 @@
+.card {
+  color: #fff;
+  font-family: "Neue", sans-serif;
+
+  margin-bottom: 33px;
+  &__body,
+  &__actions {
+    background-color: #1f2021;
+    border-radius: 16px;
+  }
+  &__body {
+    display: flex;
+    padding: 15px 15px 20px 11px;
+    gap: 22px;
+  }
+  &__image {
+    border-radius: 13px;
+    overflow: hidden;
+    min-width: 90px;
+    width: 90px;
+    min-height: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 100%;
+    position: relative;
+    img {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 130px;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__down {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+  }
+  &__up {
+    h3 {
+      color: #fff;
+      font-family: "Neue";
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 650;
+      line-height: 24px; /* 184.615% */
+    }
+  }
+  &__p1 {
+    font-family: Raleway;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+    span {
+      color: #9f9d9d;
+    }
+  }
+  &__p2 {
+    font-family: Raleway;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+    span {
+      color: #9f9d9d;
+    }
+  }
+  &__actions {
+    padding: 13px 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    background-color: #03fdb3;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    border-radius: 18px;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &:focus {
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+  }
+}

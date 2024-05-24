@@ -1,6 +1,7 @@
 import classes from "./HackatonCard.module.scss";
 import hackaton_image from "../../assets/hackaton.jpg";
 import Button from "../UI/button/Button";
+import { Link } from "react-router-dom";
 
 interface Hackaton {
   id: string;
@@ -49,17 +50,21 @@ const HackatonCard = ({ hackaton }: Props) => {
           style={{ padding: "6px 6px 10px" }}
         >
           <div>
-            <Button variant={"primary"} style={{ fontSize: "13px" }}>
-              Statisics & Participant List
-            </Button>
+            <Link to={"statistic"}>
+              <Button variant={"primary"} style={{ fontSize: "13px" }}>
+                Statisics & Participant List
+              </Button>
+            </Link>
           </div>
           <div>
-            <Button
-              variant={"secondary"}
-              style={{ fontSize: "13px", padding: "13px 28px 12px" }}
-            >
-              Edit
-            </Button>
+            <Link to={"edit"}>
+              <Button
+                variant={"secondary"}
+                style={{ fontSize: "13px", padding: "13px 28px 12px" }}
+              >
+                Edit
+              </Button>
+            </Link>
           </div>
         </div>
       ) : (

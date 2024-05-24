@@ -1,0 +1,82 @@
+.inputField {
+  cursor: pointer;
+  height: 31px;
+  font-size: 17px;
+  font-weight: normal;
+  color: #fff;
+  outline: none;
+  border: none;
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 1px 19px;
+  border-radius: 10px;
+  background-color: transparent;
+  background-image: linear-gradient(90deg, #262829 0%, #262829 100%),
+    linear-gradient(90deg, #262829 0%, #262829 100%);
+  &.gradient {
+    background-color: transparent;
+    background-image: linear-gradient(
+        94deg,
+        rgba(47, 61, 59, 1) 0%,
+        rgba(19, 161, 120, 1) 39%,
+        rgba(33, 93, 78, 1) 100%
+      ),
+      linear-gradient(
+        94deg,
+        rgba(47, 61, 59, 1) 0%,
+        rgba(19, 161, 120, 1) 39%,
+        rgba(33, 93, 78, 1) 100%
+      );
+    &:before,
+    &:after {
+      border: 1px solid rgba(47, 61, 59, 1);
+      border-right: none;
+    }
+    &:after {
+      border: 1px solid rgba(33, 93, 78, 1);
+      border-left: none;
+    }
+  }
+
+  background-size: 100% 1px;
+  background-position: 0 100%, 0 0;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  color: #fff;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 21px;
+    border: 1px solid #262829;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+  }
+
+  &:after {
+    border: 1px solid #262829;
+    border-left: none;
+    left: auto;
+    right: 0;
+    border-radius: 0 10px 10px 0;
+  }
+  input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    font-family: "Raleway", sans-serif;
+    border: none;
+    display: block;
+    color: #f9f9f9;
+    outline: none;
+    font-size: 15px;
+    line-height: 17px;
+  }
+}
