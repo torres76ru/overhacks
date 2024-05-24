@@ -8,7 +8,7 @@ const ImageInput = () => {
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0] || null;
     setSelectedImage(file);
-
+    console.log(selectedImage);
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {

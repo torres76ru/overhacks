@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
 import classes from "./ImageInputComponent.module.scss";
 import chooseFileIcon from "../../../assets/icons/add_file.svg";
 

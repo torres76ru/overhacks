@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
 import classes from "./RadioButtonItem.module.scss";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {

@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../UI/container/Container";
 import classes from "./DeveloperDistribution.module.scss";
 
