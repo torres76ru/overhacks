@@ -3,27 +3,17 @@ import HackatonCard from "../hackatonCard/HackatonCard";
 const hackatonList = [
   {
     id: "1",
-    name: "AIBC World Hackathon",
-    prize_pool: "180 000",
-    curency: "USD"
+    name: "Microsoft Developers AI Learning Hackathon",
+    prize_pool: "10 000",
+    curency: "USD",
+    preview: "src/assets/img/hackathon1.png"
   },
   {
     id: "2",
-    name: "AIBC World Hackathon",
+    name: "Google Cloud Vertex AI Agent Builder Hackathon",
     prize_pool: "180 000",
-    curency: "USD"
-  },
-  {
-    id: "2",
-    name: "AIBC World Hackathon",
-    prize_pool: "180 000",
-    curency: "USD"
-  },
-  {
-    id: "2",
-    name: "AIBC World Hackathon",
-    prize_pool: "180 000",
-    curency: "USD"
+    curency: "USD",
+    preview: "src/assets/img/hackathon2.png"
   }
 ];
 

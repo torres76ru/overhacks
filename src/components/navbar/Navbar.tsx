@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classes from "./Navbar.module.scss";
 
 const Navbar = () => {
@@ -5,7 +6,7 @@ const Navbar = () => {
     <nav className={classes.navbar}>
       <ul>
         <li>
-          <a className={classes.navbar__link} href="#">
+          <Link className={classes.navbar__link} to="/hackathons">
             <svg
               width="18"
               height="24"
@@ -30,10 +31,10 @@ const Navbar = () => {
               />
             </svg>
             <span>Hackatons</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a className={classes.navbar__link} href="#">
+          <Link className={classes.navbar__link} to="/people">
             <svg
               width="36"
               height="18"
@@ -60,10 +61,10 @@ const Navbar = () => {
             </svg>
 
             <span>People</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a className={classes.navbar__link} href="#">
+          <Link className={classes.navbar__link} to="/profile">
             <svg
               width="18"
               height="24"
@@ -89,7 +90,7 @@ const Navbar = () => {
             </svg>
 
             <span>My profile</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

@@ -1,5 +1,4 @@
 import classes from "./HackatonCard.module.scss";
-import hackaton_image from "../../assets/hackaton.jpg";
 import Button from "../UI/button/Button";
 import { Link } from "react-router-dom";
 
@@ -8,6 +7,7 @@ interface Hackaton {
   name: string;
   prize_pool: string;
   curency: string;
+  preview: string;
   admin?: boolean;
 }
 interface Props {
@@ -19,7 +19,7 @@ const HackatonCard = ({ hackaton }: Props) => {
     <div className={classes.card}>
       <div className={classes.card__body}>
         <div className={classes.card__image}>
-          <img src={hackaton_image} alt={hackaton.name} />
+          <img src={hackaton.preview} alt={hackaton.name} />
         </div>
         <div
           className={
@@ -69,9 +69,11 @@ const HackatonCard = ({ hackaton }: Props) => {
         </div>
       ) : (
         <div className={classes.card__actions}>
-          <a className={classes.card__button} href="#">
-            Apply
-          </a>
+          <Link to={hackaton.id}>
+            <Button variant={"primary"} style={{ fontSize: "13px" }}>
+              Apply
+            </Button>
+          </Link>
         </div>
       )}
     </div>

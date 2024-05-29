@@ -1,0 +1,15 @@
+$primary-color: #ffffff;
+$secondary-color: #5d5b5b;
+$green-color: #03fdb3;
+* {
+  font-family: "Raleway", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $primary-color;
+  font-family: "Neue", sans-serif;
+}

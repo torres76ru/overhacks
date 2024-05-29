@@ -1,0 +1,70 @@
+.title {
+  margin: 23px 0 10px;
+  h1 {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 650;
+    line-height: 30px;
+  }
+}
+
+.info {
+  margin-bottom: 49px;
+  p {
+    color: #5d5b5b;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+  }
+}
+
+.link {
+  width: 100%;
+  height: 120px;
+  background-color: #000;
+  position: relative;
+  z-index: 0;
+  margin-bottom: 35px;
+  border-radius: 14px;
+  border: 1px solid #000;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../../../assets/bg-ways.png");
+    z-index: -1;
+  }
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0.7; /* Adjust opacity as needed */
+  }
+  a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    span {
+      color: #dfdfdf;
+      font-family: "Neue";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 566;
+      line-height: normal;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 41px;
+  .profile_img {
+    width: 129px;
+    height: 129px;
+    margin: 0 auto;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-bottom: 16px;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+  .name {
+    color: #fff;
+    font-family: "Neue";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 650;
+    line-height: 24px; /* 160% */
+    margin-bottom: 9px;
+  }
+  .proffession {
+    color: #fff;
+    font-family: "Neue";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 650;
+    line-height: 15px; /* 75% */
+    margin-bottom: 38px;
+  }
+  .actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .action__img {
+      border: 1px solid #fff;
+      border-radius: 100%;
+      width: 87px;
+      height: 87px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 19px;
+    }
+    .action__body {
+      color: #b6b6b6;
+      font-family: "Neue";
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 650;
+      line-height: 24px; /* 184.615% */
+    }
+  }
+}
+.body {
+  border-radius: 34px;
+  height: 400px;
+  background: url("../../../assets/img/bg-profile.png"), #272525;
+  .spoiler_toggles {
+  }
+}
