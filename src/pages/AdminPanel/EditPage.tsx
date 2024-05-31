@@ -1,13 +1,13 @@
 import { useState } from "react";
-import CustomTextField from "../../UI/TextField/CustomTextField";
-import ArrowBack from "../../UI/arrow-back/ArrowBack";
-import CustomCheckBox from "../../UI/checkBox/CustomCheckBox";
-import Container from "../../UI/container/Container";
-import CustomInput from "../../UI/input/CustomInput";
 import classes from "./EditPage.module.scss";
-import CustomRadioButton from "../../UI/customRadioButton/CustomRadioButton";
-import ImageInput from "../../UI/imageInput/ImageInput";
-import Button from "../../UI/button/Button";
+import ArrowBack from "../../components/UI/arrow-back/ArrowBack";
+import Container from "../../components/UI/container/Container";
+import CustomInput from "../../components/UI/input/CustomInput";
+import CustomTextField from "../../components/UI/TextField/CustomTextField";
+import CustomCheckBox from "../../components/UI/checkBox/CustomCheckBox";
+import CustomRadioButton from "../../components/UI/customRadioButton/CustomRadioButton";
+import ImageInput from "../../components/UI/imageInput/ImageInput";
+import Button from "../../components/UI/button/Button";
 
 const EditPage = () => {
   const [formState, setFormState] = useState({

@@ -1,32 +1,32 @@
 import classes from "./HackatonCard.module.scss";
 import Button from "../UI/button/Button";
 import { Link } from "react-router-dom";
+import { Hackaton } from "../../types/hackathon";
 
-interface Hackaton {
-  id: string;
-  name: string;
-  prize_pool: string;
-  curency: string;
-  preview: string;
-  admin?: boolean;
-}
+// interface Hackaton {
+//   id: string;
+//   name: string;
+//   prize_pool: string;
+//   curency: string;
+//   preview: string;
+//
+// }
 interface Props {
   hackaton: Hackaton;
+  admin?: boolean;
 }
 
-const HackatonCard = ({ hackaton }: Props) => {
+const HackatonCard = ({ hackaton, admin }: Props) => {
   return (
     <div className={classes.card}>
       <div className={classes.card__body}>
         <div className={classes.card__image}>
-          <img src={hackaton.preview} alt={hackaton.name} />
+          <img src={hackaton.imageUrl} alt={hackaton.name} />
         </div>
         <div
-          className={
-            classes.card__info + " " + (hackaton.admin ? classes.admin : "")
-          }
+          className={classes.card__info + " " + (admin ? classes.admin : "")}
         >
-          {hackaton.admin ? (
+          {admin ? (
             <h3 className={classes.card__title}>{hackaton.name}</h3>
           ) : (
             <>
@@ -36,7 +36,7 @@ const HackatonCard = ({ hackaton }: Props) => {
               <div className={classes.card__down}>
                 <h4 className={classes.card__subtitle}>Prize pool</h4>
                 <span className={classes.card__prize_pool}>
-                  {hackaton.prize_pool} {hackaton.curency}
+                  {hackaton.prize}
                 </span>
               </div>
             </>
@@ -44,7 +44,7 @@ const HackatonCard = ({ hackaton }: Props) => {
         </div>
       </div>
 
-      {hackaton.admin ? (
+      {admin ? (
         <div
           className={classes.card__actions}
           style={{ padding: "6px 6px 10px" }}
@@ -69,7 +69,7 @@ const HackatonCard = ({ hackaton }: Props) => {
         </div>
       ) : (
         <div className={classes.card__actions}>
-          <Link to={hackaton.id}>
+          <Link to={String(hackaton.id)}>
             <Button variant={"primary"} style={{ fontSize: "13px" }}>
               Apply
             </Button>

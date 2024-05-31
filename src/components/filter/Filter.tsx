@@ -3,8 +3,11 @@ import classes from "./Filter.module.scss";
 import CustomCheckBox from "../UI/checkBox/CustomCheckBox";
 
 const marks = ["Ongoing", "Upcoming"];
+interface FilterProps {
+  onFilterChange: (selectedMarks: string[]) => void;
+}
 
-const Filter = () => {
+const Filter = ({ onFilterChange }: FilterProps) => {
   const [selectedMarks, setSelectedMarks] = useState<string[]>([]);
   const [filterVisible, setFilterVisible] = useState<boolean>(false);
   const [selectedItems, setSelectedItems] = useState<{
@@ -45,6 +48,10 @@ const Filter = () => {
 
   const handleCheckBoxChange = (updatedItems: { [key: string]: boolean }) => {
     setSelectedItems(updatedItems);
+    const selectedItemKeys = Object.keys(updatedItems).filter(
+      (key) => updatedItems[key]
+    );
+    onFilterChange(selectedItemKeys);
   };
 
   return (

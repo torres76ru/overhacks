@@ -1,0 +1,49 @@
+.container {
+  overflow: hidden;
+  min-height: 100vh;
+  background: url("../../../../assets/bg-1.png") no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #093f12 0%, #0f301c 40%, #000 100%);
+    opacity: 0.35;
+    z-index: -1;
+  }
+}
+.logo {
+  margin: 86px 0 60px;
+}
+.title {
+  margin-bottom: 7px;
+  h1 {
+    color: #dcd8d8;
+    text-align: center;
+    font-family: "Neue";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 733;
+    line-height: 102.903%; /* 20.581px */
+  }
+}
+.share {
+  color: #757474;
+  font-family: Raleway;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 45px;
+}
+.button {
+  width: 262px;
+}

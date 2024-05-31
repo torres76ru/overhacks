@@ -2,36 +2,48 @@ import React, { useState } from "react";
 import RadioButtonItem from "./RadioButtonItem";
 import classes from "./CustomRadioButton.module.scss";
 
-const CustomRadioButton = () => {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+interface RadioOption {
+  label: string;
+  value: string;
+}
+
+interface CustomRadioButtonProps {
+  options: RadioOption[];
+  allowMultiple?: boolean;
+}
+
+const CustomRadioButton: React.FC<CustomRadioButtonProps> = ({
+  options,
+  allowMultiple = false
+}) => {
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value);
+    const { value } = event.target;
+    if (allowMultiple) {
+      setSelectedOptions((prev) =>
+        prev.includes(value)
+          ? prev.filter((v) => v !== value)
+          : [...prev, value]
+      );
+    } else {
+      setSelectedOptions([value]);
+    }
   };
 
   return (
     <div className={classes.container}>
-      <RadioButtonItem
-        label="On-line"
-        name="options"
-        value="option1"
-        checked={selectedOption === "option1"}
-        onChange={handleRadioChange}
-      />
-      <RadioButtonItem
-        label="On-site"
-        name="options"
-        value="option2"
-        checked={selectedOption === "option2"}
-        onChange={handleRadioChange}
-      />
-      <RadioButtonItem
-        label="Hybrid"
-        name="options"
-        value="option3"
-        checked={selectedOption === "option3"}
-        onChange={handleRadioChange}
-      />
+      {options.map((option) => (
+        <RadioButtonItem
+          key={option.value}
+          label={option.label}
+          name="options"
+          value={option.value}
+          checked={selectedOptions.includes(option.value)}
+          onChange={handleRadioChange}
+          type={allowMultiple ? "checkbox" : "radio"}
+        />
+      ))}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import css from "./HackathonDetailsCard.module.scss";
-import clock_icon from "../../../../assets/icons/clock.svg";
-import location_icon from "../../../../assets/icons/map_mark.svg";
-import Button from "../../../UI/button/Button";
+import clock_icon from "../../../assets/icons/clock.svg";
+import location_icon from "../../../assets/icons/map_mark.svg";
+import Button from "../../../components/UI/button/Button";
 
 const HackathonDetailsCard = () => {
   return (
@@ -42,7 +42,9 @@ const HackathonDetailsCard = () => {
       </div>
 
       <div className={css.button}>
-        <Button variant="green">Apply</Button>
+        <Button to={"registration"} variant="primary">
+          Apply
+        </Button>
       </div>
     </div>
   );

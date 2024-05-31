@@ -1,0 +1,111 @@
+.container {
+  overflow: hidden;
+  min-height: 100vh;
+  background: url("../../../../assets/bg-1.png") no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #093f12 0%, #0f301c 40%, #000 100%);
+    opacity: 0.35;
+    z-index: -1;
+  }
+}
+.mesh {
+  margin-top: 158px;
+  width: 264px;
+  position: relative;
+  > img {
+    width: 100%;
+  }
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -102px);
+    width: 130px;
+    img {
+      width: 100%;
+    }
+  }
+}
+.title {
+  margin-top: 56px;
+  margin-bottom: 35px;
+  max-width: 292px;
+  h1 {
+    color: #c3c3c3;
+    text-align: center;
+    font-family: "Neue";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 733;
+    line-height: 102.903%; /* 20.581px */
+  }
+}
+.button {
+  width: 263px;
+  margin-top: 17px;
+}
+
+.exploreSpec {
+  border-radius: 31px;
+  border: 1px solid #1f2021;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  font-size: 13px;
+  span {
+    color: #fff;
+  }
+  img {
+    margin-top: 5px;
+  }
+}
+.spoiler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: none;
+  &__body {
+    width: 263px;
+    background-color: #1f2021;
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 448px;
+    overflow-y: scroll;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 13px;
+      right: 13px;
+      width: 24px;
+      height: 24px;
+      background: url("../../../../assets/icons/x.svg");
+    }
+  }
+  &._active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__button {
+    margin-top: 14px;
+    width: 100%;
+  }
+}

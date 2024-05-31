@@ -1,15 +1,16 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import HackathonsPage from "./components/pages/Hackathons/HackathonsPage";
-import AdminPage from "./components/pages/AdminPanel/AdminPage";
-import StatisticPage from "./components/pages/AdminPanel/StatisticPage";
-import EditPage from "./components/pages/AdminPanel/EditPage";
-import WhatAreYouSeek from "./components/pages/WhatAreYouSeek/WhatAreYouSeek";
-import Root from "./components/Root/Root";
-import People from "./components/pages/People/People";
+import WhatAreYouSeek from "./pages/WhatAreYouSeek/WhatAreYouSeek";
 import MainLayout from "./layouts/MainLayout";
-import Profile from "./components/pages/Profile/Profile";
-import HackathonDetails from "./components/pages/HackathonDetails/HackathonDetails";
+import HackathonsPage from "./pages/Hackathons/HackathonsPage";
+import HackathonDetails from "./pages/HackathonDetails/HackathonDetails";
+import People from "./pages/People/People";
+import Profile from "./pages/Profile/Profile";
+import Root from "./components/Root/Root";
+import AdminPage from "./pages/AdminPanel/AdminPage";
+import StatisticPage from "./pages/AdminPanel/StatisticPage";
+import EditPage from "./pages/AdminPanel/EditPage";
+import HackathonRegistration from "./pages/HackathonRegistration/HackathonRegistration";
 
 export const API_URL = import.meta.env.VITE_API_URL;
 
@@ -31,6 +32,7 @@ function App() {
           path: "/hackathons/:id",
           element: <HackathonDetails />
         },
+
         {
           path: "/people",
           element: <People />
@@ -41,6 +43,7 @@ function App() {
         }
       ]
     },
+
     {
       path: "/",
       element: <Root />,
@@ -56,6 +59,10 @@ function App() {
         {
           path: "admin-panel/edit",
           element: <EditPage />
+        },
+        {
+          path: "/hackathons/:id/registration",
+          element: <HackathonRegistration />
         }
       ]
     }

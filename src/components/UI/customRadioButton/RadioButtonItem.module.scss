@@ -2,11 +2,11 @@
 .container {
   display: block;
   position: relative;
-  padding-left: calc(31px + 23px);
+  padding-left: calc(31px + 15px);
   margin-bottom: 20px !important;
   height: 31px;
   font-family: "Neue", sans-serif;
-  font-size: 15px !important;
+  font-size: inherit !important;
   font-weight: 816;
   line-height: 15.3px;
   text-align: left;

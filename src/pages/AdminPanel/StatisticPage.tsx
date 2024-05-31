@@ -1,9 +1,9 @@
+import ArrowBack from "../../components/UI/arrow-back/ArrowBack";
+import Container from "../../components/UI/container/Container";
+import DeveloperDistribution from "../../components/developerDistribution/DeveloperDistribution";
+import ParticipantList from "../../components/participantList/ParticipantList";
+import RegistrationFrequency from "../../components/registrationFrequency/RegistrationFrequency";
 import classes from "./StatisticPage.module.scss";
-import Container from "../../UI/container/Container";
-import ArrowBack from "../../UI/arrow-back/ArrowBack";
-import DeveloperDistribution from "../../developerDistribution/DeveloperDistribution";
-import RegistrationFrequency from "../../registrationFrequency/RegistrationFrequency";
-import ParticipantList from "../../participantList/ParticipantList";
 
 const StatisticPage = () => {
   return (

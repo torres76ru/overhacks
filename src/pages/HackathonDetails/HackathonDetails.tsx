@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import css from "./HackathonDetails.module.scss";
-import Container from "../../UI/container/Container";
+
 import HackathonDetailsCard from "./components/HackathonDetailsCard";
-import ArrowBack from "../../UI/arrow-back/ArrowBack";
-import ToggleButton from "../../toggleButton/ToggleButton";
 import HackathonDetailsText from "./components/HackathonDetailsText";
-import ProjectCard from "../../ProjectCard/ProjectCard";
+import ArrowBack from "../../components/UI/arrow-back/ArrowBack";
+import Container from "../../components/UI/container/Container";
+import ToggleButton from "../../components/toggleButton/ToggleButton";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
 const projects = [
   {

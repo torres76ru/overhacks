@@ -1,9 +1,8 @@
-import React from "react";
 import css from "./Profile.module.scss";
-import heart_icon from "../../../assets/icons/heart.svg";
-import next_icon from "../../../assets/icons/arrow_pixel.svg";
-import ArrowBack from "../../UI/arrow-back/ArrowBack";
-import Container from "../../UI/container/Container";
+import heart_icon from "../../assets/icons/heart.svg";
+import next_icon from "../../assets/icons/arrow_pixel.svg";
+import ArrowBack from "../../components/UI/arrow-back/ArrowBack";
+import Container from "../../components/UI/container/Container";
 
 const data = {
   profile_img: "src/assets/img/profile-picture4.jpg",

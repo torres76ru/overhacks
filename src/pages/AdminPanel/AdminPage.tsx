@@ -1,13 +1,14 @@
-import ArrowBack from "../../UI/arrow-back/ArrowBack";
-import Button from "../../UI/button/Button";
-import Container from "../../UI/container/Container";
-import HackatonCard from "../../hackatonCard/HackatonCard";
+import ArrowBack from "../../components/UI/arrow-back/ArrowBack";
+import Button from "../../components/UI/button/Button";
+import Container from "../../components/UI/container/Container";
+import HackatonCard from "../../components/hackatonCard/HackatonCard";
 import classes from "./AdminPage.module.scss";
 const hackathon = {
   id: "1",
   name: "AIBC World Hackathon",
   prize_pool: "180 000",
   curency: "USD",
+  preview: "http://localhost:5173/src/assets/img/hackathon1.png",
   admin: true
 };
 

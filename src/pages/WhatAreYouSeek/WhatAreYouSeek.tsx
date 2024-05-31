@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import css from "./WhatAreYouSeek.module.scss";
-import Container from "../../UI/container/Container";
-import video from "../../../assets/gifs/sft_button.mp4";
+import video from "../../assets/gifs/sft_button.mp4";
+import Container from "../../components/UI/container/Container";
 
 const WhatAreYouSeek = () => {
   return (

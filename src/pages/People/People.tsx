@@ -1,12 +1,12 @@
-import Container from "../../UI/container/Container";
-import Search from "../../search/Search";
-import css from "./People.module.scss";
-import arrow_down from "../../../assets/icons/chevron-down.svg";
-import bg_video from "../../../assets/gifs/user_home_bg.mp4";
 import { useState } from "react";
-import CustomCheckBox from "../../UI/checkBox/CustomCheckBox";
-import Button from "../../UI/button/Button";
-import ParticipantCard from "../../paricipantCard/ParticipantCard";
+import css from "./People.module.scss";
+import arrow_down from "../../assets/icons/chevron-down.svg";
+import bg_video from "../../assets/gifs/user_home_bg.mp4";
+import Container from "../../components/UI/container/Container";
+import Search from "../../components/search/Search";
+import CustomCheckBox from "../../components/UI/checkBox/CustomCheckBox";
+import Button from "../../components/UI/button/Button";
+import ParticipantCard from "../../components/paricipantCard/ParticipantCard";
 
 const People = () => {
   const [specVisibility, setVisibility] = useState<boolean>(false);

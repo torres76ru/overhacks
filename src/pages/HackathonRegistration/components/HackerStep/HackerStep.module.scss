@@ -1,0 +1,118 @@
+.container {
+  overflow: hidden;
+  min-height: 100vh;
+  background: url("../../../../assets/bg-1.png") no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #093f12 0%, #0f301c 40%, #000 100%);
+    opacity: 0.35;
+    z-index: -1;
+  }
+}
+.card {
+  color: #fff;
+  font-family: "Neue", sans-serif;
+  margin-top: 87px;
+  margin-bottom: 33px;
+  position: relative;
+  &__body,
+  &__actions {
+    background-color: #1f2021;
+    border-radius: 10px;
+  }
+  &__body {
+    display: flex;
+    padding: 15px 15px 20px 11px;
+    width: 295px;
+    height: 110px;
+  }
+  &__image {
+    border-radius: 13px;
+    overflow: hidden;
+    min-width: 90px;
+    width: 90px;
+    min-height: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 100%;
+    position: relative;
+    img {
+      width: 100%;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__down {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+  }
+  &__up {
+    h3 {
+      color: #fff;
+      font-family: "Neue";
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 650;
+      line-height: 24px; /* 184.615% */
+    }
+  }
+  &__p1 {
+    font-family: Raleway;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+    span {
+      color: #9f9d9d;
+    }
+  }
+  &__p2 {
+    font-family: Raleway;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+    span {
+      color: #9f9d9d;
+    }
+  }
+  .bounds {
+    position: absolute;
+    top: -3px;
+    left: -40px;
+  }
+}
+.title {
+  margin-top: 85px;
+  margin-bottom: 37px;
+  width: 292px;
+  h1 {
+    color: #c3c3c3;
+    text-align: center;
+    font-family: "Neue";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 733;
+    line-height: 102.903%; /* 20.581px */
+  }
+}
+.button {
+  width: 263px;
+  margin-top: 17px;
+}
