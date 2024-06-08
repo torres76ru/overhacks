@@ -4,6 +4,8 @@ import FirstStep from "./components/FirstStep/FirstStep";
 import HackerStep from "./components/HackerStep/HackerStep";
 import max_bill from "../../assets/img/max-bill.jpg";
 import SuccessStep from "./components/SuccessStep/SuccessStep";
+import ProjectCreation from "./components/ProjectCreation/ProjectCreation";
+import TeamForming from "./components/TeamForming/TeamForming";
 
 const HackathonRegistration = () => {
   const [regWay, setRegWay] = useState<string>();
@@ -22,7 +24,11 @@ const HackathonRegistration = () => {
       case "hacker":
         return <HackerStep hacker={hackerProps} onClick={handleRegWay} />;
       case "success":
-        return <SuccessStep />;
+        return <SuccessStep onClick={handleRegWay} />;
+      case "project":
+        return <ProjectCreation onClick={handleRegWay} />;
+      case "team":
+        return <TeamForming />;
       default:
         return <FirstStep onClick={handleRegWay} />;
     }

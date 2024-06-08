@@ -4,8 +4,8 @@ import ArrowBack from "../../components/UI/arrow-back/ArrowBack";
 import Container from "../../components/UI/container/Container";
 import CustomInput from "../../components/UI/input/CustomInput";
 import CustomTextField from "../../components/UI/TextField/CustomTextField";
-import CustomCheckBox from "../../components/UI/checkBox/CustomCheckBox";
-import CustomRadioButton from "../../components/UI/customRadioButton/CustomRadioButton";
+// import CustomCheckBox from "../../components/UI/checkBox/CustomCheckBox";
+// import CustomRadioButton from "../../components/UI/customRadioButton/CustomRadioButton";
 import ImageInput from "../../components/UI/imageInput/ImageInput";
 import Button from "../../components/UI/button/Button";
 
@@ -50,7 +50,7 @@ const EditPage = () => {
           </div>
           <div className={classes.inputBlock}>
             <label>Add topic(s) of the event</label>
-            <CustomCheckBox />
+            {/* <CustomCheckBox /> */}
           </div>
           <div className={classes.inputBlock}>
             <CustomInput
@@ -98,7 +98,7 @@ const EditPage = () => {
           </div>
           <div className={classes.inputBlock}>
             <label>Choose format of the event</label>
-            <CustomRadioButton />
+            {/* <CustomRadioButton /> */}
           </div>
           <div className={classes.inputBlock}>
             <label>Add sponsor(s) names</label>

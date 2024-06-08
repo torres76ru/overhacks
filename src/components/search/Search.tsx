@@ -1,20 +1,19 @@
 import classes from "./Search.module.scss";
 import search_icon from "../../assets/icons/search.svg";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 
-const Search = () => {
-  const [searchQuery, setSearchQuery] = useState<string>("");
+interface Props {
+  searchQuery: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-  };
-
+const Search = ({ searchQuery, onChange }: Props) => {
   return (
     <div className={classes.input}>
       <input
         id="search"
         name="search"
-        onChange={handleChange}
+        onChange={onChange}
         value={searchQuery}
       />
       {!searchQuery && (

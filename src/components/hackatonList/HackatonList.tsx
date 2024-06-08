@@ -6,18 +6,17 @@ import { Hackaton } from "../../types/hackathon";
 
 interface Props {
   filter?: string[];
+  searchQuery: string;
 }
 
-const HackatonList = ({ filter }: Props) => {
+const HackatonList = ({ searchQuery, filter }: Props) => {
   const [hackatonList, setHackatonList] = useState<Hackaton[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get<Hackaton[]>(API_URL + "/hackathons");
-        const data = response.data;
-        console.log(data);
-        setHackatonList(data);
+        setHackatonList(response.data);
       } catch (error) {
         console.error("Error fetching hackathon data:", error);
       }
@@ -31,19 +30,19 @@ const HackatonList = ({ filter }: Props) => {
   }, [filter]);
 
   const filterHackathon = (hackathon: Hackaton): boolean => {
-    console.log("FILTERHACKATHON");
-    if (!filter) console.log(filter);
-    if (!filter || filter?.length === 0) return true; // Если фильтр не определен, выводим все
-    console.log("FILTERED");
-    console.log(filter);
-    // Проверяем, есть ли пересечения между темами hackathon и фильтром
-    return hackathon.topics.some((topic) => filter.includes(topic));
+    const nameMatches = hackathon.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    if (!filter || filter.length === 0) return nameMatches; // Return true if filter is not defined or empty
+    return (
+      hackathon.topics.some((topic) => filter.includes(topic)) || nameMatches
+    );
   };
 
   return (
     <div>
       {hackatonList
-        .filter((hackathon) => filterHackathon(hackathon)) // Фильтруем список по фильтру, если он определен
+        .filter((hackathon) => filterHackathon(hackathon))
         .map((hackaton) => (
           <HackatonCard key={hackaton.id} hackaton={hackaton} />
         ))}

@@ -32,7 +32,7 @@
   align-items: center;
   justify-content: center;
   height: 34px;
-  margin: 16px 0 42px;
+  margin: 16px 0 10px;
   position: relative;
   span {
     color: #fff;
@@ -52,6 +52,7 @@
   display: none;
   max-height: 448px;
   overflow-y: scroll;
+  z-index: 20;
   &._active {
     display: block;
   }
@@ -62,7 +63,7 @@
     right: 13px;
     width: 24px;
     height: 24px;
-    background: url("../../../assets/icons/x.svg");
+    background: url("../../assets/icons/x.svg");
   }
   &__button {
     position: sticky;
@@ -73,4 +74,33 @@
   }
 }
 .people {
+}
+.selected {
+  margin-bottom: 20px;
+}
+.selection_delete {
+  display: inline-block;
+  color: #fff;
+  background-color: #1d1d1d;
+  color: #b3b1b1;
+
+  font-family: Raleway;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+  padding: 6px 25px 6px 11px;
+  border-radius: 20px;
+  position: relative;
+}
+.close_icon {
+  content: "";
+  position: absolute;
+  background: url("../../assets/icons/x.svg") no-repeat center center;
+  width: 10px; /* Укажите ширину и высоту иконки */
+  height: 10px;
+  right: 10px; /* Отступ справа */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }

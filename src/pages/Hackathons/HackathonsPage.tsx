@@ -4,10 +4,16 @@ import Container from "../../components/UI/container/Container";
 import Search from "../../components/search/Search";
 import Filter from "../../components/filter/Filter";
 import HackatonList from "../../components/hackatonList/HackatonList";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 const HackathonsPage = () => {
   const [filter, setFilter] = useState<string[]>([]);
+
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
 
   const handleFilterChange = (selectedMarks: string[]) => {
     setFilter(selectedMarks);
@@ -22,7 +28,7 @@ const HackathonsPage = () => {
       </div>
       <div style={{ margin: "18px 0 20px" }}>
         <Container>
-          <Search />
+          <Search searchQuery={searchQuery} onChange={handleChange} />
         </Container>
       </div>
       <div style={{ margin: "5px 15px 20px" }}>
@@ -30,7 +36,7 @@ const HackathonsPage = () => {
       </div>
       <div style={{ margin: "30px 0 0" }}>
         <Container>
-          <HackatonList filter={filter} />
+          <HackatonList filter={filter} searchQuery={searchQuery} />
         </Container>
       </div>
     </div>

@@ -1,7 +1,12 @@
 import Button from "../../../../components/UI/button/Button";
 import css from "./SuccessStep.module.scss";
 import logo_icon from "../../../../assets/img/hackathon-register-logo.svg";
-const SuccessStep = () => {
+
+interface Props {
+  onClick: (way: string) => void;
+}
+
+const SuccessStep = ({ onClick }: Props) => {
   return (
     <div className={css.container}>
       <div className={css.logo}>
@@ -14,7 +19,7 @@ const SuccessStep = () => {
         Share your idea or see hackathon details to start
       </div>
       <div className={css.button}>
-        <Button to={"/hackathons"} variant={"secondary"}>
+        <Button onClick={() => onClick("team")} variant={"secondary"}>
           Close
         </Button>
       </div>

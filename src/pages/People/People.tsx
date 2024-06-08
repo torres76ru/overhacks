@@ -3,10 +3,10 @@ import css from "./People.module.scss";
 import arrow_down from "../../assets/icons/chevron-down.svg";
 import bg_video from "../../assets/gifs/user_home_bg.mp4";
 import Container from "../../components/UI/container/Container";
-import Search from "../../components/search/Search";
+
 import CustomCheckBox from "../../components/UI/checkBox/CustomCheckBox";
 import Button from "../../components/UI/button/Button";
-import ParticipantCard from "../../components/paricipantCard/ParticipantCard";
+import UserProfile from "../../components/UserProfile/UserProfile";
 
 const People = () => {
   const [specVisibility, setVisibility] = useState<boolean>(false);
@@ -31,26 +31,7 @@ const People = () => {
     { name: "dapps", label: "DApps" },
     { name: "defi", label: "DeFi" },
     { name: "nft", label: "NFT / Digital art" },
-    { name: "security", label: "Security" },
     { name: "security", label: "Security" }
-  ];
-  const paricipantList = [
-    {
-      id: "1",
-      name: "Petra Molchanova",
-      role: "Full-stack developer",
-      expirience: "3 years",
-      skills: "JavaScript, PostgreSQL",
-      picture: "src/assets/img/profile-picture.png"
-    },
-    {
-      id: "2",
-      name: "Emma Watson",
-      role: "Product Designer",
-      expirience: "8 years",
-      skills: "Adobe, AI, Motion",
-      picture: "src/assets/img/profile-picture.png"
-    }
   ];
 
   const handleCheckBoxChange = (updatedItems: { [key: string]: boolean }) => {
@@ -60,7 +41,12 @@ const People = () => {
   const toggleSpecVisibility = () => {
     setVisibility(!specVisibility);
   };
-
+  const handleDelete = (item: string) => {
+    setSelectedItems((prevItems) => ({
+      ...prevItems,
+      [item]: false
+    }));
+  };
   return (
     <div className={css.wrapper}>
       <div className={css.bg_vid}>
@@ -69,7 +55,6 @@ const People = () => {
         </video>
       </div>
       <Container>
-        <Search />
         <div className={css.exploreSpec} onClick={toggleSpecVisibility}>
           <span>Explore Specializations</span>
           <img src={arrow_down} alt="arrow down" />
@@ -86,12 +71,26 @@ const People = () => {
             </div>
           </div>
         </div>
-        <div className={css.people}>
-          {paricipantList.map((person) => (
-            <ParticipantCard {...person} />
-          ))}
+        <div className={css.selected}>
+          {Object.entries(selectedItems).map(([key, value]) => {
+            if (value) {
+              return (
+                <div key={key} className={css.selection_delete}>
+                  {key}
+                  <span
+                    onClick={() => handleDelete(key)}
+                    className={css.close_icon}
+                  ></span>
+                </div>
+              );
+            }
+            return null;
+          })}
         </div>
       </Container>
+      <div className={css.people}>
+        <UserProfile />
+      </div>
     </div>
   );
 };

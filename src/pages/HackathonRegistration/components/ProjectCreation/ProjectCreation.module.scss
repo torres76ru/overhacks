@@ -1,0 +1,41 @@
+.wrapper {
+  overflow: hidden;
+  min-height: 100vh;
+  background: url("../../../../assets/bg-1.png") no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+  color: #757474;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+.form {
+  padding: 63px 0 0;
+}
+.inputs {
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.inputBlock {
+  label {
+    display: block;
+    margin-bottom: 6px;
+    color: #757474;
+    font-family: Raleway;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  margin-bottom: 24px;
+}

@@ -48,12 +48,18 @@ const FirstStep = ({ onClick }: Props) => {
             <div className={`${css.spoiler__body}`}>
               <CustomRadioButton options={options} allowMultiple={true} />
               <div className={css.spoiler__button}>
-                <Button variant="secondary" onClick={toggleSpecVisibility}>
+                <Button variant="secondary" onClick={() => onClick("success")}>
                   Select
                 </Button>
               </div>
               <div className={css.spoiler__button}>
-                <Button onClick={toggleSpecVisibility}>Create new one</Button>
+                <Button
+                  onClick={() => {
+                    onClick("project");
+                  }}
+                >
+                  Create new one
+                </Button>
               </div>
             </div>
           </div>

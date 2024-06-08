@@ -30,9 +30,9 @@ const ProjectCard = ({ project }: Props) => {
       </div>
 
       <div className={classes.card__actions}>
-        <Link to={String(project.id)}>
+        <Link to={"/project/" + String(project.id)}>
           <Button variant={"secondary"} style={{ fontSize: "13px" }}>
-            Apply
+            Join
           </Button>
         </Link>
       </div>

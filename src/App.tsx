@@ -5,12 +5,12 @@ import MainLayout from "./layouts/MainLayout";
 import HackathonsPage from "./pages/Hackathons/HackathonsPage";
 import HackathonDetails from "./pages/HackathonDetails/HackathonDetails";
 import People from "./pages/People/People";
-import Profile from "./pages/Profile/Profile";
 import Root from "./components/Root/Root";
 import AdminPage from "./pages/AdminPanel/AdminPage";
 import StatisticPage from "./pages/AdminPanel/StatisticPage";
 import EditPage from "./pages/AdminPanel/EditPage";
 import HackathonRegistration from "./pages/HackathonRegistration/HackathonRegistration";
+import ProjectPage from "./pages/Projects/ProjectPage";
 
 export const API_URL = import.meta.env.VITE_API_URL;
 
@@ -32,14 +32,13 @@ function App() {
           path: "/hackathons/:id",
           element: <HackathonDetails />
         },
-
+        {
+          path: "/project/:id",
+          element: <ProjectPage />
+        },
         {
           path: "/people",
           element: <People />
-        },
-        {
-          path: "/profile",
-          element: <Profile />
         }
       ]
     },

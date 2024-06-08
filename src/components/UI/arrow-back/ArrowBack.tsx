@@ -6,7 +6,13 @@ const ArrowBack = () => {
     <Link
       to={".."}
       relative="path"
-      style={{ padding: "10px 0 0 15px", display: "block" }}
+      style={{
+        padding: "10px 0 0 15px",
+        display: "block",
+        position: "absolute",
+        top: 0,
+        left: 0
+      }}
     >
       <img src={arrow_icon} alt="go back" />
     </Link>

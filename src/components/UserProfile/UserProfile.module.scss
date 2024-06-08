@@ -1,8 +1,14 @@
+.container {
+  padding-top: 32px;
+  border-radius: 35px;
+  background-color: #1d1d1d;
+}
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 41px;
+
   .profile_img {
     width: 129px;
     height: 129px;
@@ -64,9 +70,46 @@
   }
 }
 .body {
-  border-radius: 34px;
-  height: 400px;
-  background: url("../../../assets/img/bg-profile.png"), #272525;
-  .spoiler_toggles {
+  border-top-left-radius: 34px;
+  border-top-right-radius: 34px;
+
+  background: url("../../assets/img/bg-profile.png"), #272525;
+  padding: 24px 20px 120px;
+  .spoiler_toggle {
+    margin-bottom: 13px;
+  }
+  &__text {
+    padding: 25px;
+    border-radius: 19px;
+    background-color: #1d1d1d;
+    color: #fff;
+    font-family: Raleway;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 118.856%; /* 14.263px */
+  }
+  .text_block {
+    background: #1f2021;
+    color: #fff;
+    padding: 9px 12px 14px;
+    border-radius: 14px;
+    font-family: Raleway;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    margin-bottom: 15px;
+    h3 {
+      color: #fff;
+      font-family: "Neue";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 650;
+      line-height: 24px; /* 160% */
+    }
+    ul {
+      padding-left: 20px;
+    }
   }
 }
