@@ -1,0 +1,28 @@
+.task {
+  color: #ffffff;
+  font-size: 15px;
+  background: #1d1d1d;
+  border-radius: 19px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  margin-bottom: 15px;
+}
+
+.description {
+  margin-left: 15px;
+}
+
+.reward {
+  margin-top: 2px;
+  color: #81ffda;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.imgWrapper {
+  display: flex;
+  justify-content: center;
+  width: 40px;
+}
