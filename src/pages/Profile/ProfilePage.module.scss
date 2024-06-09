@@ -1,0 +1,151 @@
+.wrapper {
+  padding-top: 39px;
+  padding-bottom: 30px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // background-image: url("./../../assets/bg-1.png");
+  background-repeat: repeat;
+  & > .bg_animated {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: -1;
+    video: {
+      width: 100%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+  .profile_picture {
+    width: auto;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 30px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .profile_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 38px;
+    .profile_name {
+      color: #fff;
+      font-family: "Neue";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 733;
+      line-height: 24px; /* 160% */
+    }
+    .profile_job {
+      color: #fff;
+      font-family: Raleway;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+  .block_label {
+    color: #505050;
+    font-family: "Neue";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 733;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .block_text {
+    padding: 7px 16px 12px;
+    background-color: #1f2021;
+    font-family: "Neue";
+    overflow: hidden;
+    color: #fff;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+  }
+  li {
+    margin-left: 12px;
+  }
+  .block_skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    .skill {
+      color: #fff;
+      font-family: "Neue";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px; /* 106.667% */
+      background-color: #272728;
+      border-radius: 20px;
+      display: inline;
+      text-wrap: nowrap;
+      padding: 3px 5px;
+    }
+    .plus {
+      width: 50px;
+      display: flex;
+      position: relative;
+      &::before,
+      &::after {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        width: 1px;
+        height: 10px;
+        background-color: #fff;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        width: 10px;
+        height: 1px;
+        background-color: #fff;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+    }
+  }
+}
