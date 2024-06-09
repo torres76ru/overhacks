@@ -28,15 +28,38 @@ const data = {
 //     preview: "http://localhost:5173/src/assets/img/proj2.jpg"
 //   }
 // ];
+const photoUrls = [
+  "https://storage.googleapis.com/overhacks-resources/prt10.png",
+  "https://storage.googleapis.com/overhacks-resources/prt9.png",
+  "https://storage.googleapis.com/overhacks-resources/prt7.png",
+  "https://storage.googleapis.com/overhacks-resources/prt8.png",
+  "https://storage.googleapis.com/overhacks-resources/prt5.png",
+  "https://storage.googleapis.com/overhacks-resources/prt6.png",
+  "https://storage.googleapis.com/overhacks-resources/prt4.png",
+  "https://storage.googleapis.com/overhacks-resources/prt2.png",
+  "https://storage.googleapis.com/overhacks-resources/prt1.png",
+  "https://storage.googleapis.com/overhacks-resources/prt3.png"
+];
+
 const UserProfile = () => {
   const { data: profileData, refetch: nextProfile, isLoading } = useNextProfile();
   const [toggle, setToggle] = useState<boolean>(false);
   const handleToggleEvent = () => {
     setToggle(!toggle);
   };
+  const [photo, setPhoto] = useState<string>(photoUrls[0]);
+  
+  const chooseRandomPhoto = () => {
+    let currentPhoto = photo;
+    while (currentPhoto === null || currentPhoto === photo) {
+      currentPhoto = photoUrls[Math.floor(Math.random() * (photoUrls.length - 1))];
+    }
+    return currentPhoto;
+  }
   
   const fetchNextProfile = async () => {
     await nextProfile();
+    setPhoto(chooseRandomPhoto());
   }
 
   return (
@@ -45,7 +68,7 @@ const UserProfile = () => {
         
         <section className={css.header}>
           <div className={css.profile_img}>
-            <img src={profileData?.photoUrl} alt="Profile Image" />
+            <img src={photo} alt="Profile Image" />
           </div>
           <h2 className={css.name}>{profileData?.nickname}</h2>
           <h1 className={css.proffession}>{profileData?.roles?.[0]?.name}</h1>

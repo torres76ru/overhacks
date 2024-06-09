@@ -17,6 +17,7 @@ import { THEME, TonConnectUIProvider } from "@tonconnect/ui-react";
 import PerfectMatch from "./components/PerfectMatch/PerfectMatch";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { setUserData } from "./api";
+import { useEffect } from "react";
 
 export const API_URL = import.meta.env.VITE_API_URL;
 
@@ -27,6 +28,11 @@ function App() {
     const user = Object.assign(initData.user, { "chatId": initData.user.id });
     setUserData(JSON.stringify({ user }))
   }
+
+  useEffect(() => {
+    window.Telegram.WebApp.expand()
+    window.Telegram.WebApp.setHeaderColor('#000')
+  }, []);
 
   const router = createBrowserRouter([
     {
