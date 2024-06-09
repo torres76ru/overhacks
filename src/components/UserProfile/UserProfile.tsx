@@ -6,6 +6,8 @@ import ToggleButton from "../toggleButton/ToggleButton";
 import { useState } from "react";
 // import ProjectCard from "../ProjectCard/ProjectCard";
 import { useNextProfile } from "../../api";
+import PerfectMatch from "../PerfectMatch/PerfectMatch";
+import { useNavigate } from "react-router";
 
 // const projects = [
 //   {
@@ -39,6 +41,8 @@ const photoUrls = [
 const UserProfile = () => {
   const { data: profileData, refetch: nextProfile } = useNextProfile();
   const [toggle, setToggle] = useState<boolean>(false);
+  const redirect = useNavigate();
+
   const handleToggleEvent = () => {
     setToggle(!toggle);
   };
@@ -52,6 +56,12 @@ const UserProfile = () => {
     return currentPhoto;
   }
   
+  const likeProfile = () => {
+    redirect('/perfect-match', {
+      state: { profile: profileData },
+    });
+  }
+  
   const fetchNextProfile = async () => {
     await nextProfile();
     setPhoto(chooseRandomPhoto());
@@ -60,7 +70,6 @@ const UserProfile = () => {
   return (
     <div className={css.container}>
       <Container>
-        
         <section className={css.header}>
           <div className={css.profile_img}>
             <img src={photo} alt="Profile Image" />
@@ -68,7 +77,7 @@ const UserProfile = () => {
           <h2 className={css.name}>{profileData?.nickname}</h2>
           <h1 className={css.proffession}>{profileData?.roles?.[0]?.name}</h1>
           <div className={css.actions}>
-            <div className={css.action}>
+            <div className={css.action} onClick={likeProfile}>
               <div className={css.action__img}>
                 <img src={heart_icon} alt="be friend button" />
               </div>
