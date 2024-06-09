@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import arrow_icon from "../../../assets/icons/arrow.svg";
 
-const ArrowBack = () => {
+interface Props {
+  to?: string;
+}
+
+const ArrowBack = ({ to }: Props) => {
   return (
     <Link
-      to={".."}
+      to={to || ".."}
       relative="path"
       style={{
         padding: "10px 0 0 15px",

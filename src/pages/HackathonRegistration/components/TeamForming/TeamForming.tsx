@@ -25,26 +25,28 @@ const TeamForming = () => {
   };
 
   return (
-    <Container>
-      <h1>Do you want to form a team</h1>
-      <p>
-        Select the roles for teammates you want to invite, or click "Skip" if
-        you're not interested
-      </p>
-      <div className={css.roles}>
-        <CustomCheckBox
-          items={roles}
-          onChange={handleCheckBoxChange}
-          selectedItems={selectedItems}
-        />
-      </div>
-      <div className={css.buttons}>
-        <Button to={"/people"}>Choose</Button>
-        <Button to={"/hackathons"} variant={"secondary"}>
-          Skip
-        </Button>
-      </div>
-    </Container>
+    <div className={`${css.wrapper}`}>
+      <Container>
+        <h1 className={css.title}>Do you want to form a team</h1>
+        <p className={css.info}>
+          Select the roles for teammates you want to invite, or click "Skip" if
+          you're not interested
+        </p>
+        <div className={css.roles}>
+          <CustomCheckBox
+            items={roles}
+            onChange={handleCheckBoxChange}
+            selectedItems={selectedItems}
+          />
+        </div>
+        <div className={css.buttons}>
+          <Button to={"/people"}>Choose</Button>
+          <Button to={"/hackathons"} variant={"secondary"}>
+            Skip
+          </Button>
+        </div>
+      </Container>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import classes from "./HackatonCard.module.scss";
 import Button from "../UI/button/Button";
 import { Link } from "react-router-dom";
-import { Hackaton } from "../../types/hackathon";
+import { HackathonState } from "../../types/types";
 
 // interface Hackaton {
 //   id: string;
@@ -12,7 +12,7 @@ import { Hackaton } from "../../types/hackathon";
 //
 // }
 interface Props {
-  hackaton: Hackaton;
+  hackaton: HackathonState;
   admin?: boolean;
 }
 

@@ -38,6 +38,10 @@ function App() {
           element: <ProjectPage />,
         },
         {
+          path: '/hackathons/:id/project/:id',
+          element: <ProjectPage />,
+        },
+        {
           path: '/people',
           element: <People />,
         },

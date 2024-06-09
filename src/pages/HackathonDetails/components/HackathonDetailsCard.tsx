@@ -2,14 +2,19 @@ import css from "./HackathonDetailsCard.module.scss";
 import clock_icon from "../../../assets/icons/clock.svg";
 import location_icon from "../../../assets/icons/map_mark.svg";
 import Button from "../../../components/UI/button/Button";
+import { HackathonState } from "../../../types/types";
 
-const HackathonDetailsCard = () => {
+interface Props {
+  hackathon: HackathonState;
+}
+
+const HackathonDetailsCard = ({ hackathon }: Props) => {
   return (
     <div className={css.container}>
       <div className={`${css.container__body}`}>
         <div className={`${css.prize_pool}`}>
           <p className={`${css.prize_pool__label}`}>Prize pool</p>
-          <div className={`${css.prize_pool__price}`}>10 000 USD</div>
+          <div className={`${css.prize_pool__price}`}>{hackathon.prize}</div>
         </div>
         <div className={`${css.time_location}`}>
           <div className={`${css.time_location__time}`}>
@@ -34,9 +39,9 @@ const HackathonDetailsCard = () => {
             <p>Topics: </p>
           </div>
           <div className={`${css.topics__topics}`}>
-            <div className={`${css.topics__topic}`}>WEB3</div>
-            <div className={`${css.topics__topic}`}>Gaming</div>
-            <div className={`${css.topics__topic}`}>AI</div>
+            {hackathon.topics.map((topic) => (
+              <div className={`${css.topics__topic}`}>{topic}</div>
+            ))}
           </div>
         </div>
       </div>

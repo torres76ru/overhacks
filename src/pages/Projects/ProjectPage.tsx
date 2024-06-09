@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./ProjectPage.module.scss";
 
 import ArrowBack from "../../components/UI/arrow-back/ArrowBack";
@@ -6,14 +6,9 @@ import Container from "../../components/UI/container/Container";
 import ToggleButton from "../../components/toggleButton/ToggleButton";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import ParticipantCard from "../../components/paricipantCard/ParticipantCard";
-
-const data = {
-  id: 0,
-  name: "Pluton",
-  details:
-    "This blockchain-based P2P advertisement marketplace on the TON blockchain, integrated with Telegram",
-  preview: "http://localhost:5173/src/assets/img/proj1.png"
-};
+import { ProjectState } from "../../types/types";
+import { useParams } from "react-router-dom";
+import { fetchProject } from "../../actions/projects";
 
 const paricipantList = [
   {
@@ -36,23 +31,43 @@ const paricipantList = [
 
 const ProjectPage = () => {
   const [toggle, setToggle] = useState<boolean>(false);
+  const [project, setProject] = useState<ProjectState>();
   const handleToggleEvent = () => {
     setToggle(!toggle);
   };
+  const { id } = useParams<{ id: string }>();
+  console.log(id);
+
+  useEffect(() => {
+    const fetchProjectData = async () => {
+      if (id !== undefined) {
+        try {
+          const projectData = await fetchProject(parseInt(id));
+          setProject(projectData);
+          console.log(projectData);
+        } catch (error) {
+          console.error("Error fetching project:", error);
+        }
+      }
+    };
+
+    fetchProjectData();
+  }, [id]);
+
   return (
     <div className={`${css.wrapper}`}>
       <ArrowBack />
       <Container>
         <h1 className={`${css.title}`}>Pluton</h1>
         <div className={`${css.card}`}>
-          <ProjectCard project={data} />
+          {project !== undefined && <ProjectCard project={project} />}
         </div>
       </Container>
       <section className={css.details}>
         <div className={css.spoiler_toggle}>
           <ToggleButton
             button1="Details"
-            button2="Projects"
+            button2="Project team"
             onClick={handleToggleEvent}
           />
         </div>
