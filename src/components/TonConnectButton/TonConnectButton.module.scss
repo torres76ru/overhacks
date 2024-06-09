@@ -12,14 +12,25 @@
     font-weight: 733;
     line-height: 15px; /* 150% */
     letter-spacing: 0.1px;
-    padding: 0;
   }
   button {
-    padding: 0;
     max-height: 30px;
+    border-radius: 10px;
+    background-color: #03fdb3;
+    padding: 7px 6px;
+    > div {
+      color: #000 !important;
+      font-family: "Neue" !important;
+      font-size: 10px !important;
+      font-style: normal !important;
+      font-weight: 733 !important;
+      line-height: 15px !important; /* 150% */
+      letter-spacing: 0.1px !important;
+    }
   }
 }
 
 .button {
   margin-left: auto;
+  color: #000 !important;
 }
