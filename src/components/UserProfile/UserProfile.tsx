@@ -5,6 +5,7 @@ import Container from "../UI/container/Container";
 import ToggleButton from "../toggleButton/ToggleButton";
 import { useState } from "react";
 // import ProjectCard from "../ProjectCard/ProjectCard";
+import { useNextProfile } from "../../api";
 
 const data = {
   profile_img: "src/assets/img/profile-picture4.jpg",
@@ -28,20 +29,26 @@ const data = {
 //   }
 // ];
 const UserProfile = () => {
+  const { data: profileData, refetch: nextProfile, isLoading } = useNextProfile();
   const [toggle, setToggle] = useState<boolean>(false);
   const handleToggleEvent = () => {
     setToggle(!toggle);
   };
+  
+  const fetchNextProfile = async () => {
+    await nextProfile();
+  }
 
   return (
     <div className={css.container}>
       <Container>
+        
         <section className={css.header}>
           <div className={css.profile_img}>
-            <img src={data.profile_img} alt="Profile Image" />
+            <img src={profileData?.photoUrl} alt="Profile Image" />
           </div>
-          <h2 className={css.name}>{data.name}</h2>
-          <h1 className={css.proffession}>{data.proffession}</h1>
+          <h2 className={css.name}>{profileData?.nickname}</h2>
+          <h1 className={css.proffession}>{profileData?.roles?.[0]?.name}</h1>
           <div className={css.actions}>
             <div className={css.action}>
               <div className={css.action__img}>
@@ -51,7 +58,7 @@ const UserProfile = () => {
                 <p>Invite to team</p>
               </div>
             </div>
-            <div className={css.action}>
+            <div className={css.action} onClick={fetchNextProfile}>
               <div className={css.action__img}>
                 <img src={next_icon} alt="next arrow button" />
               </div>
@@ -75,29 +82,19 @@ const UserProfile = () => {
             <div className={css.text_block}>
               <h3>BIO</h3>
               <p>
-                Creative and detail-oriented Product Designer with over 8 years
-                of experience in crafting user-centric digital products across
-                various industries.
+                { profileData?.about || 'There is no bio for this profile :(' }
               </p>
             </div>
             <div className={css.text_block}>
               <h3>Projects</h3>
               <ul>
-                <li>FlowTech Dashboard</li>
-                <li>EcoEat App</li>
-                <li>ArtisanConnect</li>
-                <li>Bio Design</li>
+                {profileData?.projects?.map((project) => (<li>{project}</li>))}
               </ul>
             </div>
             <div className={css.text_block}>
               <h3>Skills</h3>
               <ul>
-                <li>Motion</li>
-                <li>Graphic design</li>
-                <li>Adobe</li>
-                <li>AI</li>
-                <li>Color theory</li>
-                <li>Typography</li>
+                {profileData?.skills?.map((skill) => (<li>{skill.name}</li>))}
               </ul>
             </div>
           </div>
