@@ -1,42 +1,55 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./HackathonDetails.module.scss";
 
 import HackathonDetailsCard from "./components/HackathonDetailsCard";
-import HackathonDetailsText from "./components/HackathonDetailsText";
 import ArrowBack from "../../components/UI/arrow-back/ArrowBack";
 import Container from "../../components/UI/container/Container";
 import ToggleButton from "../../components/toggleButton/ToggleButton";
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
-const projects = [
-  {
-    id: 0,
-    name: "Pluton",
-    details:
-      "This blockchain-based P2P advertisement marketplace on the TON blockchain, integrated with Telegram",
-    preview: "http://localhost:5173/src/assets/img/proj1.png"
-  },
-  {
-    id: 1,
-    name: "Moon",
-    details:
-      "This blockchain-based P2P advertisement marketplace on the TON blockchain, integrated with Telegram",
-    preview: "http://localhost:5173/src/assets/img/proj2.jpg"
-  }
-];
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store";
+import { fetchHackathons } from "../../store/hackathonSlice";
+
+import HackathonPojects from "./components/HackathonPojects";
 
 const HackathonDetails = () => {
   const [toggle, setToggle] = useState<boolean>(false);
+
   const handleToggleEvent = () => {
     setToggle(!toggle);
   };
+
+  // load hackathons
+  const dispatch = useDispatch<AppDispatch>();
+  useEffect(() => {
+    dispatch(fetchHackathons());
+  }, [dispatch]);
+
+  // take hackathons
+  const hackathons = useSelector(
+    (state: RootState) => state.hackathons.hackathons
+  );
+
+  // find hackathon by id
+  const { id } = useParams<{ id: string }>();
+  const hackathonId = id ? parseInt(id, 10) : null;
+  const selectedHackathon =
+    hackathonId !== null
+      ? hackathons.find((hackathon) => hackathon.id === hackathonId)
+      : null;
+
+  if (!selectedHackathon) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className={`${css.wrapper}`}>
       <ArrowBack />
       <Container>
-        <h1 className={`${css.title}`}>Microsoft Hackathon</h1>
+        <h1 className={`${css.title}`}>{selectedHackathon.name}</h1>
         <div className={`${css.card}`}>
-          <HackathonDetailsCard />
+          <HackathonDetailsCard hackathon={selectedHackathon} />
         </div>
       </Container>
       <section className={css.details}>
@@ -49,12 +62,17 @@ const HackathonDetails = () => {
         </div>
         {!toggle ? (
           <div className={css.details__text}>
-            <HackathonDetailsText />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: selectedHackathon.description
+              }}
+            />
           </div>
         ) : (
           <div className={css.details__project}>
-            <ProjectCard project={projects[0]} />
-            <ProjectCard project={projects[1]} />
+            {hackathonId != null && (
+              <HackathonPojects hackathonId={hackathonId} />
+            )}
           </div>
         )}
       </section>

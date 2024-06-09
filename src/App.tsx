@@ -33,7 +33,7 @@ function App() {
           element: <HackathonDetails />
         },
         {
-          path: "/project/:id",
+          path: "/hackathons/:id/project/:id",
           element: <ProjectPage />
         },
         {

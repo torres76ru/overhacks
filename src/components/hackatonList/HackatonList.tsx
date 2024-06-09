@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import HackatonCard from "../hackatonCard/HackatonCard";
-import axios from "axios";
-import { API_URL } from "../../App";
-import { Hackaton } from "../../types/hackathon";
+import { HackathonState } from "../../types/types";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store";
+import { fetchHackathons } from "../../store/hackathonSlice";
 
 interface Props {
   filter?: string[];
@@ -10,38 +11,31 @@ interface Props {
 }
 
 const HackatonList = ({ searchQuery, filter }: Props) => {
-  const [hackatonList, setHackatonList] = useState<Hackaton[]>([]);
+  const dispatch = useDispatch<AppDispatch>();
+  const hackathons = useSelector(
+    (state: RootState) => state.hackathons.hackathons
+  );
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get<Hackaton[]>(API_URL + "/hackathons");
-        setHackatonList(response.data);
-      } catch (error) {
-        console.error("Error fetching hackathon data:", error);
-      }
-    };
+    dispatch(fetchHackathons());
+  }, [dispatch]);
 
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    console.log(filter);
-  }, [filter]);
-
-  const filterHackathon = (hackathon: Hackaton): boolean => {
+  const filterHackathon = (hackathon: HackathonState): boolean => {
     const nameMatches = hackathon.name
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
     if (!filter || filter.length === 0) return nameMatches; // Return true if filter is not defined or empty
-    return (
-      hackathon.topics.some((topic) => filter.includes(topic)) || nameMatches
+
+    const topicsMatch = hackathon.topics.some((topic) =>
+      filter.includes(topic)
     );
+
+    return nameMatches && topicsMatch;
   };
 
   return (
     <div>
-      {hackatonList
+      {hackathons
         .filter((hackathon) => filterHackathon(hackathon))
         .map((hackaton) => (
           <HackatonCard key={hackaton.id} hackaton={hackaton} />

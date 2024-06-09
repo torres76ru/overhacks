@@ -4,29 +4,29 @@ import next_icon from "../../assets/icons/arrow_pixel.svg";
 import Container from "../UI/container/Container";
 import ToggleButton from "../toggleButton/ToggleButton";
 import { useState } from "react";
-import ProjectCard from "../ProjectCard/ProjectCard";
+// import ProjectCard from "../ProjectCard/ProjectCard";
 
 const data = {
   profile_img: "src/assets/img/profile-picture4.jpg",
   name: "Petra Molchanova",
   proffession: "Full-stack developer"
 };
-const projects = [
-  {
-    id: 0,
-    name: "Pluton",
-    details:
-      "This blockchain-based P2P advertisement marketplace on the TON blockchain, integrated with Telegram",
-    preview: "http://localhost:5173/src/assets/img/proj1.png"
-  },
-  {
-    id: 1,
-    name: "Moon",
-    details:
-      "This blockchain-based P2P advertisement marketplace on the TON blockchain, integrated with Telegram",
-    preview: "http://localhost:5173/src/assets/img/proj2.jpg"
-  }
-];
+// const projects = [
+//   {
+//     id: 0,
+//     name: "Pluton",
+//     details:
+//       "This blockchain-based P2P advertisement marketplace on the TON blockchain, integrated with Telegram",
+//     preview: "http://localhost:5173/src/assets/img/proj1.png"
+//   },
+//   {
+//     id: 1,
+//     name: "Moon",
+//     details:
+//       "This blockchain-based P2P advertisement marketplace on the TON blockchain, integrated with Telegram",
+//     preview: "http://localhost:5173/src/assets/img/proj2.jpg"
+//   }
+// ];
 const UserProfile = () => {
   const [toggle, setToggle] = useState<boolean>(false);
   const handleToggleEvent = () => {
@@ -103,8 +103,8 @@ const UserProfile = () => {
           </div>
         ) : (
           <div className={css.details__project}>
-            <ProjectCard project={projects[0]} />
-            <ProjectCard project={projects[1]} />
+            {/* <ProjectCard project={projects[0]} />
+            <ProjectCard project={projects[1]} /> */}
           </div>
         )}
       </section>

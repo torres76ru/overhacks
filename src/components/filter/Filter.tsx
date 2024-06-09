@@ -1,38 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./Filter.module.scss";
 import CustomCheckBox from "../UI/checkBox/CustomCheckBox";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store";
+import { fetchTopics } from "../../store/topicsSlice";
 
 const marks = ["Ongoing", "Upcoming"];
+
 interface FilterProps {
   onFilterChange: (selectedMarks: string[]) => void;
 }
 
+interface CheckBoxItem {
+  name: string;
+  label: string;
+}
+
 const Filter = ({ onFilterChange }: FilterProps) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const topics = useSelector((state: RootState) => state.topics.topics);
+
   const [selectedMarks, setSelectedMarks] = useState<string[]>([]);
   const [filterVisible, setFilterVisible] = useState<boolean>(false);
   const [selectedItems, setSelectedItems] = useState<{
     [key: string]: boolean;
-  }>({
-    online: false,
-    ai: false,
-    web3: false,
-    gaming: false,
-    dapps: false,
-    defi: false,
-    nft: false,
-    security: false
-  });
+  }>({});
+  const [filterList, setFilterList] = useState<CheckBoxItem[]>([]);
 
-  const filterList = [
-    { name: "online", label: "Online" },
-    { name: "ai", label: "AI" },
-    { name: "web3", label: "WEB3" },
-    { name: "gaming", label: "Gaming" },
-    { name: "dapps", label: "DApps" },
-    { name: "defi", label: "DeFi" },
-    { name: "nft", label: "NFT / Digital art" },
-    { name: "security", label: "Security" }
-  ];
+  useEffect(() => {
+    dispatch(fetchTopics());
+  }, [dispatch]);
+
+  useEffect(() => {
+    const filterList = Array.isArray(topics)
+      ? topics.map((topic) => ({
+          name: topic.name.toLowerCase(),
+          label: topic.name
+        }))
+      : [];
+    setFilterList(filterList);
+  }, [topics]);
 
   const toggleMark = (mark: string) => {
     if (selectedMarks.includes(mark)) {
