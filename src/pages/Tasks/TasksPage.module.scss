@@ -1,0 +1,29 @@
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mainTitle {
+  width: 300px;
+  text-align: center;
+}
+
+.container {
+  padding: 10px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.balance {
+  margin-top: 20px;
+  color: white;
+  text-align: center;
+  font-size: 13px;
+}
+
+.balanceScore {
+  color: #81ffda;
+}
