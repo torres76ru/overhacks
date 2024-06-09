@@ -7,11 +7,6 @@ import { useState } from "react";
 // import ProjectCard from "../ProjectCard/ProjectCard";
 import { useNextProfile } from "../../api";
 
-const data = {
-  profile_img: "src/assets/img/profile-picture4.jpg",
-  name: "Petra Molchanova",
-  proffession: "Full-stack developer"
-};
 // const projects = [
 //   {
 //     id: 0,
@@ -42,7 +37,7 @@ const photoUrls = [
 ];
 
 const UserProfile = () => {
-  const { data: profileData, refetch: nextProfile, isLoading } = useNextProfile();
+  const { data: profileData, refetch: nextProfile } = useNextProfile();
   const [toggle, setToggle] = useState<boolean>(false);
   const handleToggleEvent = () => {
     setToggle(!toggle);
