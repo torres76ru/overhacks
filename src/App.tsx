@@ -12,6 +12,7 @@ import EditPage from './pages/AdminPanel/EditPage';
 import HackathonRegistration from './pages/HackathonRegistration/HackathonRegistration';
 import ProjectPage from './pages/Projects/ProjectPage';
 import TasksPage from './pages/Tasks/TasksPage';
+import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 
 export const API_URL = import.meta.env.VITE_API_URL;
 
@@ -76,9 +77,12 @@ function App() {
     },
   ]);
   return (
-    <>
+    <TonConnectUIProvider
+      manifestUrl="https://overhacks.com/tonconnect-manifest.json"
+      uiPreferences={{ theme: THEME.DARK }}
+    >
       <RouterProvider router={router} />
-    </>
+    </TonConnectUIProvider>
   );
 }
 
