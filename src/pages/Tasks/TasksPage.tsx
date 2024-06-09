@@ -6,8 +6,14 @@ import axios from 'axios';
 import TasksPageLogo from './TasksPageLogo';
 import TaskItem from './TaskItem';
 
+type Task = {
+  id: string;
+  name: string;
+  reward: number;
+};
+
 const TasksPage = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -110,33 +116,36 @@ const TasksPage = () => {
       </div>
       <div className={css.container}>
         <h4 className={css.title}>List of tasks</h4>
-        <TaskItem
-          img={
-            <svg
-              width="24"
-              height="28"
-              viewBox="0 0 24 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 20C7.58172 20 4 23.5817 4 28H20C20 23.5817 16.4183 20 12 20Z"
-                fill="#5F5F5F"
-              />
-              <circle cx="12" cy="12" r="12" fill="#DCFFF5" />
-              <circle
-                cx="10"
-                cy="12.6665"
-                r="5.85"
-                fill="#03FDB3"
-                stroke="#5F5F5F"
-                stroke-width="0.3"
-              />
-            </svg>
-          }
-          title="Follow Overhacks tg channel"
-          reward={100}
-        />
+        {tasks.map((task) => (
+          <TaskItem
+            img={
+              <svg
+                width="24"
+                height="28"
+                viewBox="0 0 24 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 20C7.58172 20 4 23.5817 4 28H20C20 23.5817 16.4183 20 12 20Z"
+                  fill="#5F5F5F"
+                />
+                <circle cx="12" cy="12" r="12" fill="#DCFFF5" />
+                <circle
+                  cx="10"
+                  cy="12.6665"
+                  r="5.85"
+                  fill="#03FDB3"
+                  stroke="#5F5F5F"
+                  stroke-width="0.3"
+                />
+              </svg>
+            }
+            key={task.id}
+            title={task.name}
+            reward={task.reward}
+          />
+        ))}
       </div>
     </div>
   );
