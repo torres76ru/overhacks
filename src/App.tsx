@@ -15,10 +15,25 @@ import TasksPage from "./pages/Tasks/TasksPage";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import { THEME, TonConnectUIProvider } from "@tonconnect/ui-react";
 import PerfectMatch from "./components/PerfectMatch/PerfectMatch";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { setUserData } from "./api";
+import { useEffect } from "react";
 
 export const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
+  const queryClient = new QueryClient({});
+  const initData = window.Telegram.WebApp.initDataUnsafe;
+  if (typeof initData !== 'undefined' && initData.user) {
+    const user = Object.assign(initData.user, { "chatId": initData.user.id });
+    setUserData(JSON.stringify({ user }))
+  }
+
+  useEffect(() => {
+    window.Telegram.WebApp.expand()
+    window.Telegram.WebApp.setHeaderColor('#000')
+  }, []);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -87,12 +102,16 @@ function App() {
     }
   ]);
   return (
-    <TonConnectUIProvider
-      manifestUrl="https://overhacks.com/tonconnect-manifest.json"
-      uiPreferences={{ theme: THEME.DARK }}
-    >
-      <RouterProvider router={router} />
-    </TonConnectUIProvider>
+    <>
+      <TonConnectUIProvider
+        manifestUrl="https://overhacks.com/tonconnect-manifest.json"
+        uiPreferences={{ theme: THEME.DARK }}
+      >
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </TonConnectUIProvider>
+    </>
   );
 }
 
