@@ -42,7 +42,7 @@ const ProjectPage = () => {
     const fetchProjectData = async () => {
       if (id !== undefined) {
         try {
-          const projectData = await fetchProject(parseInt(id));
+          const projectData = await fetchProject(id);
           setProject(projectData);
           console.log(projectData);
         } catch (error) {
@@ -54,13 +54,30 @@ const ProjectPage = () => {
     fetchProjectData();
   }, [id]);
 
+  const projectDetails =
+    project?.description !== undefined ? (
+      <div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: project?.description
+          }}
+        />
+      </div>
+    ) : undefined;
+
+  useEffect(() => {
+    console.log("Project", project);
+  }, [project]);
+
   return (
     <div className={`${css.wrapper}`}>
-      <ArrowBack />
+      <ArrowBack to="../../" />
       <Container>
         <h1 className={`${css.title}`}>Pluton</h1>
         <div className={`${css.card}`}>
-          {project !== undefined && <ProjectCard project={project} />}
+          {project !== undefined && (
+            <ProjectCard project={project} link={"#"} />
+          )}
         </div>
       </Container>
       <section className={css.details}>
@@ -72,33 +89,7 @@ const ProjectPage = () => {
           />
         </div>
         {!toggle ? (
-          <div className={css.details__text}>
-            <p>
-              In Q2 2024, we're thrilled to introduce the "One BNB – Coding the
-              Future" hackathon, setting the stage for yet another exciting
-              chapter in the evolution of blockchain technology!
-            </p>
-            <p>
-              The inception of opBNB and BNB Greenfield in 2023 marked the
-              commencement of the “One BNB” multi-chain journey, accompanied by
-              a wealth of ideas and feedback from the vibrant BNB Chain
-              community. This theme now serves as the bedrock of our hackathon,
-              reflecting BNB Chain's ongoing pursuit of pioneering blockchain
-              solutions.
-            </p>
-            <p>
-              In addition to offering our thanks to our annual sponsors –
-              Polyhedra Network, Dora Factory, DEGO Finance, TUSD, Sonorus and
-              THENA – we also welcome new sponsors for this quarter: Baby Doge
-              and Holoworld AI.
-            </p>
-            <p>
-              The BNB Chain 2024 Hackathon is your golden ticket to dive
-              headfirst into the exhilarating realm of decentralized
-              applications, where your ideas can spark tangible real-world
-              transformations.🌟:
-            </p>
-          </div>
+          <div className={css.details__text}>{projectDetails}</div>
         ) : (
           <div className={css.details__project}>
             {paricipantList.map((person) => (

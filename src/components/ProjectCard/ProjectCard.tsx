@@ -6,13 +6,14 @@ import { truncateText } from "../../utils";
 
 interface Props {
   project: ProjectState;
+  link?: string;
 }
 
-const ProjectCard = ({ project }: Props) => {
+const ProjectCard = ({ project, link }: Props) => {
   const truncatedDescription = project.description
     ? truncateText(project.description, 30)
     : null;
-
+  console.log(project);
   return (
     <div className={classes.card}>
       <div className={classes.card__body}>
@@ -35,7 +36,7 @@ const ProjectCard = ({ project }: Props) => {
       </div>
 
       <div className={classes.card__actions}>
-        <Link to={"project/" + String(project._id)}>
+        <Link to={link ? link : "project/" + String(project._id)}>
           <Button variant={"secondary"} style={{ fontSize: "13px" }}>
             Join
           </Button>
