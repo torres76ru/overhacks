@@ -1,0 +1,70 @@
+.wrapper {
+  padding: 72px 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  height: 100%;
+  flex-grow: 1;
+  width: 296px;
+  margin: 0 auto;
+}
+h1 {
+  color: #f8f8f8;
+  font-family: "Neue";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 733;
+  line-height: 24px; /* 120% */
+  text-transform: capitalize;
+}
+.text {
+  color: #787878;
+  text-align: center;
+  font-family: Raleway;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 123.077% */
+  a {
+    color: #03fdb3;
+    font-family: Raleway;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration-line: underline;
+  }
+}
+.button {
+  width: 110px;
+  display: inline-block;
+  color: #000;
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-31%, -46%) !important;
+    width: 424px;
+    height: 424px;
+    background: url("../../assets/icons/star.png");
+    z-index: 100;
+    transition: all 0.3s ease;
+  }
+}
+.button2 {
+  width: 90%;
+}

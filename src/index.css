@@ -25,6 +25,9 @@ body {
   /* padding-bottom: 114px; */
 }
 
+#root {
+  height: 100vh;
+}
 .container {
   margin: 40px;
 }

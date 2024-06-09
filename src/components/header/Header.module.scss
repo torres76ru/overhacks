@@ -1,0 +1,31 @@
+.header {
+  padding: 20px 16px;
+}
+.header_body {
+  display: flex;
+  justify-content: space-between;
+}
+.header_left,
+.header_right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.header_left {
+  justify-content: start;
+}
+.header_right {
+  justify-content: end;
+}
+
+.header_xp {
+  color: #81ffda;
+  font-family: "Neue";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 733;
+  line-height: normal;
+}
+.header_ton_connect {
+  height: 30px;
+}

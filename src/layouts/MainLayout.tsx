@@ -1,11 +1,12 @@
-import { Outlet, ScrollRestoration } from 'react-router-dom';
-import Navbar from '../components/navbar/Navbar';
-import TonConnectButton from '../components/TonConnectButton/TonConnectButton';
+import { Outlet, ScrollRestoration } from "react-router-dom";
+import Navbar from "../components/navbar/Navbar";
+import Header from "../components/header/Header";
 
 const MainLayout = () => {
   return (
     <>
-      <TonConnectButton />
+      {/* <TonConnectButton /> */}
+      <Header />
       <Outlet />
       <Navbar />
       <ScrollRestoration />
