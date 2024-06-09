@@ -14,12 +14,18 @@ export const fetchProjects = async (id: number): Promise<ProjectState[]> => {
   }
 };
 
-export const fetchProject = async (id: number): Promise<ProjectState> => {
+interface ProjectResponse {
+  status: string;
+  message: string;
+  data: ProjectState;
+}
+
+export const fetchProject = async (id: string): Promise<ProjectState> => {
   try {
-    const response = await axios.get<ProjectState>(
-      `${API_URL}/project/?projectuuid=${id}`
+    const response = await axios.get<ProjectResponse>(
+      `${API_URL}project/?projectuuid=${id}`
     );
-    return response.data;
+    return response.data.data;
   } catch (error) {
     console.error("Error fetching projects:", error);
     throw error;

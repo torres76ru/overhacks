@@ -12,6 +12,7 @@ import EditPage from './pages/AdminPanel/EditPage';
 import HackathonRegistration from './pages/HackathonRegistration/HackathonRegistration';
 import ProjectPage from './pages/Projects/ProjectPage';
 import TasksPage from './pages/Tasks/TasksPage';
+import ProfilePage from './pages/Profile/ProfilePage';
 import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 
 export const API_URL = import.meta.env.VITE_API_URL;
@@ -49,6 +50,10 @@ function App() {
         {
           path: '/earn',
           element: <TasksPage />,
+        },
+        {
+          path: '/profile',
+          element: <ProfilePage />,
         },
       ],
     },
