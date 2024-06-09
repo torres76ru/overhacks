@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import css from "./WhatAreYouSeek.module.scss";
-import video from "../../assets/gifs/sft_button.mp4";
-import Container from "../../components/UI/container/Container";
+import { Link } from 'react-router-dom';
+import css from './WhatAreYouSeek.module.scss';
+import video from '../../assets/gifs/sft_button.mp4';
+import Container from '../../components/UI/container/Container';
 
 const WhatAreYouSeek = () => {
   return (
@@ -18,7 +18,7 @@ const WhatAreYouSeek = () => {
       </div>
 
       <div className={`${css.link} ${css.link__animated}`}>
-        <Link to="#">
+        <Link to="people">
           <video autoPlay loop muted playsInline>
             <source src={video} type="video/mp4" />
           </video>
